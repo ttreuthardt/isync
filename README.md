@@ -5,8 +5,12 @@ Packaging of isync (https://sourceforge.net/projects/isync) based on the Red Hat
 * isync version: 1.5.0 
 * Image: ghcr.io/ttreuthardt/isync:main
 
+IMPORTANT: Please note that the binary of isync is `mbsync`. 
+
 # Usage
 
+The default config location is /config/isyncrc. You can mount your config file to this location.
+
 ```sh
-docker run --rm -it -v /path/to/isyncrc:/config/isyncrc --user $(id --user) -v $PWD/data:/data ghcr.io/ttreuthardt/isync:main mbsync --config /config/isyncrc -a
+docker run --rm -it -v $PWD/isyncrc:/config/isyncrc --user $(id --user) -v $PWD/data:/data ghcr.io/ttreuthardt/isync:main -a
 ```
